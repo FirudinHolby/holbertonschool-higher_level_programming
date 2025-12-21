@@ -1,1 +1,0 @@
-bele bele isler
