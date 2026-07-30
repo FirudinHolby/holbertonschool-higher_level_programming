@@ -1,2 +1,2 @@
--- Za
+-- LIST TABLES
 SHOW TABLES;

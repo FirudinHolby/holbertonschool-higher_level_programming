@@ -1,38 +1,20 @@
-#!/usr/bin/env python3
-"""two mixin classes, SwimMixin and FlyMixin"""
-
-
+#!/usr/bin/python3
 class SwimMixin:
-    """
-    with a method swim that print
-    """
-
     def swim(self):
-        """
-        print
-        """
-        print("The creature swims!")
+        print('The creature swims!')
 
 
 class FlyMixin:
-    """
-    with a method fly that print
-    """
-
     def fly(self):
-        """
-        print
-        """
-        print("The creature flies!")
+        print('The creature flies!')
 
 
 class Dragon(SwimMixin, FlyMixin):
-    """
-    inherits from both SwimMixin and FlyMixin
-    """
-
     def roar(self):
-        """
-        print
-        """
-        print("The dragon roars!")
+        print('The dragon roars!')
+
+
+draco = Dragon()
+draco.swim()
+draco.fly()
+draco.roar()

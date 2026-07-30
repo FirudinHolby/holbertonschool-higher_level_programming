@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""BaseGeometry class"""
+"""This is inheritance"""
 
 
 class BaseGeometry:
-    """
-    Empty base class
-    """
+    """This is class"""
     pass

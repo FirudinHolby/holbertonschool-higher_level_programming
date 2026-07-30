@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""Define a class Square."""
+"""python3 -c 'print(__import__("my_module").__doc__)"""
 
 
 class Square:
-    """Represent a square."""
-
+    """python3 -c 'print(__import__("my_module").MyClass.__doc__)"""
     def __init__(self, size):
-        """Initialize a new Square.
-
-        Args:
-            size (int): The size of the new square.
+        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
         self.__size = size

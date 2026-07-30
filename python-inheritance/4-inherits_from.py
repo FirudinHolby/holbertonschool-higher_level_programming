@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""a function that returns True if the object is an instance of a class"""
+"""python3 -c 'print(__import__("my_module").__doc__)'"""
 
 
 def inherits_from(obj, a_class):
-    """
-    a function that returns True if the object is
-    an instance of a class that inherited
-    (directly or indirectly) from the specified class
-    otherwise False.
-    """
-    return isinstance(obj, a_class) and type(obj) is not a_class
+    '''python3 -c 'print(__import__("my_module").my_function.__doc__)'
+    python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+    '''
+    if issubclass(obj.__class__, a_class) and type(obj) is not a_class:
+        return True
+    return False

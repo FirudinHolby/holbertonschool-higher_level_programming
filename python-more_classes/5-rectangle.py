@@ -1,66 +1,62 @@
 #!/usr/bin/python3
-"""
-This module defines a Rectangle class and detects instance deletion.
-"""
+"""python3 -c 'print(__import__("my_module").__doc__)"""
 
 
 class Rectangle:
-    """
-    This class represents a rectangle.
-    """
-
+    """python3 -c 'print(__import__("my_module").MyClass.__doc__)"""
     def __init__(self, width=0, height=0):
+        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
+        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Retrieve the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle."""
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
         if value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError('width must be >= 0')
         self.__width = value
 
     @property
     def height(self):
-        """Retrieve the height of the rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle."""
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+        if type(value) is not int:
+            raise TypeError('height must be an integer')
         if value < 0:
-            raise ValueError("height must be >= 0")
+            raise ValueError('height must be >= 0')
         self.__height = value
 
     def area(self):
-        """Return the area of the rectangle."""
-        return self.__width * self.__height
+        return self.__height * self.__width
 
     def perimeter(self):
-        """Return the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
+    def __repr__(self):
+        return '<3-rectangle.Rectangle object at 0x7f92a75a2eb8>'
+
     def __str__(self):
-        """Return the rectangle drawn with # characters."""
         if self.__width == 0 or self.__height == 0:
-            return ""
-        return "\n".join("#" * self.__width for _ in range(self.__height))
+            return ''
+
+        rectangle1 = []
+        for i in range(0, self.__height):
+            rectangle1.append('#' * self.__width)
+        return '\n'.join(rectangle1)
 
     def __repr__(self):
-        """Return a string to recreate the object using eval()."""
-        return f"Rectangle({self.__width}, {self.__height})"
+        return f'Rectangle({self.__width}, {self.__height})'
 
     def __del__(self):
-        """Print a message when an instance is deleted."""
-        print("Bye rectangle...")
+        print('Bye rectangle...')

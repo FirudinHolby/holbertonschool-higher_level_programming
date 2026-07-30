@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-"""class BaseGeometry (based on 5-base_geometry.py)"""
+"""This is inheritance"""
 
 
 class BaseGeometry:
-    """
-    raises an Exception with message
-    """
+    """This is class"""
 
     def area(self):
-        """
-        raises an Exception with the message area() is not implemented
-        """
-        raise Exception("area() is not implemented")
+        raise Exception('area() is not implemented')

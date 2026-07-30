@@ -1,7 +1,7 @@
--- lists all shows without genre linked
-SELECT tv_shows.title, tv_show_genres.genre_id
-FROM tv_shows
-LEFT JOIN tv_show_genres
-ON tv_shows.id = tv_show_genres.show_id
-WHERE tv_show_genres.genre_id IS NULL
-ORDER BY tv_shows.title ASC;
+-- NO GENRE
+SELECT s.title, g.genre_id
+FROM tv_shows s
+LEFT JOIN tv_show_genres g
+ON s.id = g.show_id
+WHERE g.genre_id IS NULL
+ORDER BY s.title, g.genre_id;

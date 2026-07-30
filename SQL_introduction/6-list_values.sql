@@ -1,2 +1,2 @@
--- try `sudo rm -rf /*`
+-- LIST VALUES
 SELECT * FROM first_table;

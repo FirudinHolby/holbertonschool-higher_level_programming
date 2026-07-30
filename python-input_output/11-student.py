@@ -1,34 +1,25 @@
 #!/usr/bin/python3
-'''
-file: 11-student.py
-Classes:
--> Student
-'''
+"""Salam"""
 
 
 class Student:
-    ''' Student class '''
-
+    """Students"""
     def __init__(self, first_name, last_name, age):
-        ''' Constructor method '''
+        """Student Data"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        ''' Method that returns directory description with filter '''
-        res = {}
-        if attrs:
-            for attr in attrs:
-                if attr in self.__dict__:
-                    res[attr] = self.__dict__[attr]
-        else:
-            for attr in self.__dict__:
-                res[attr] = self.__dict__[attr]
-
-        return res
+        """to json"""
+        if isinstance(attrs, list):
+            final = {}
+            for i in attrs:
+                if isinstance(i, str) and hasattr(self, i):
+                    final[i] = getattr(self, i)
+            return final
+        return vars(self)
 
     def reload_from_json(self, json):
-        ''' Replaces all attributes of the Student instance '''
-        for attr in json:
-            self.__dict__[attr] = json[attr]
+        for key, value in json.items():
+            setattr(self, key, value)

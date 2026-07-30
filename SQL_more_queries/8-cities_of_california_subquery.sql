@@ -1,9 +1,7 @@
--- lists all the cities of the Califronia
-SELECT id, name 
-FROM cities 
-WHERE state_id = (
-    SELECT id 
-    FROM states 
-    WHERE name  = 'California'
-)
-ORDER BY cities.id ASC;
+-- CITIES OF CALIFORNIA
+SELECT id, name FROM cities
+WHERE cities.state_id = (
+    SELECT id
+    FROM states
+    WHERE name='California'
+);

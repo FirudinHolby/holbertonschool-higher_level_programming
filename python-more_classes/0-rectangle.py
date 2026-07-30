@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-"""
-This module defines an empty Rectangle class.
-"""
+"""python3 -c 'print(__import__("my_module").__doc__)"""
 
 
 class Rectangle:
-    """
-    This class represents a rectangle.
-    """
+    """python3 -c 'print(__import__("my_module").MyClass.__doc__)"""
     pass

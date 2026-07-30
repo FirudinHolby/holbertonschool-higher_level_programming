@@ -1,1 +1,1 @@
-nice
+Inheritance of classes

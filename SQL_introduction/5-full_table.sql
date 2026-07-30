@@ -1,2 +1,2 @@
--- table but for what??!
+-- FULL TABLE
 SHOW CREATE TABLE first_table;

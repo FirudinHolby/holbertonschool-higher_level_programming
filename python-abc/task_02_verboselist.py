@@ -1,39 +1,27 @@
-#!/usr/bin/env python3
-"""extends the Python list class"""
-
-
+#!/usr/bin/python3
 class VerboseList(list):
-    """
-    extends list to print messages
-    """
 
-    def append(self, item):
-        """
-        append an item to the list with notification.
-        """
-        super().append(item)
-        print(f"Added [{item}] to the list.")
+    def append(self, value):
+        super().append(value)
+        print(f"Added [{value}] to the list.")
 
-    def extend(self, iterable):
-        """
-        extend list with items from iterable
-        """
-        original_length = len(self)
-        super().extend(iterable)
-        items_added = len(self) - original_length
-        print(f"Extended the list with [{items_added}] items.")
+    def extend(self, value):
+        super().extend(item for item in value)
+        print(f"Extended the list with [{len(value)}] items.")
 
-    def remove(self, item):
-        """
-        remove an item from the list
-        """
-        print(f"Removed [{item}] from the list.")
-        super().remove(item)
+    def remove(self, value):
+        print(f"Removed [{value}] from the list.")
+        super().remove(value)
 
-    def pop(self, index=-1):
-        """
-        remove and return item at index
-        """
-        item = self[index]
+    def pop(self, value=-1):
+        item = self[value]
         print(f"Popped [{item}] from the list.")
-        return super().pop(index)
+        return super().pop(value)
+
+
+vl = VerboseList([1, 2, 3])
+vl.append(4)
+vl.extend([5, 6])
+vl.remove(2)
+vl.pop()
+vl.pop(0)

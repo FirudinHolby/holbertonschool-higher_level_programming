@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""function that returns True if object is an instance of the class"""
+"""python3 -c 'print(__import__("my_module").__doc__)'"""
 
 
 def is_same_class(obj, a_class):
-    """
-    function that returns True if the object is
-    exactly an instance of the specified class
-    otherwise False.
-    """
-    return type(obj) is a_class
+    '''python3 -c 'print(__import__("my_module").my_function.__doc__)'
+    python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+    '''
+    if type(obj) is a_class:
+        return True
+    return False

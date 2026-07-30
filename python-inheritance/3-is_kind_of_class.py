@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""function that returns True if the object is an instance of"""
+"""python3 -c 'print(__import__("my_module").__doc__)'"""
 
 
 def is_kind_of_class(obj, a_class):
-    """
-    a function that returns True if the object is an instance of,
-    or if the object is an instance of a class
-    that inherited from, the specified class
-    otherwise False.
-    """
-    return isinstance(obj, a_class)
+    '''python3 -c 'print(__import__("my_module").my_function.__doc__)'
+    python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+    '''
+    if isinstance(obj, a_class):
+        return True
+    return False

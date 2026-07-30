@@ -1,2 +1,3 @@
--- bm?
-SELECT AVG(score) as average FROM second_table;
+-- AVERAGE SQL
+SELECT AVG(score) as average
+FROM second_table;
