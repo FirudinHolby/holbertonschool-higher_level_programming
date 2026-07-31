@@ -1,9 +1,9 @@
 #!/usr/bin/node
-const sqrSize = process.argv[2];
-
-if (Number(sqrSize)) {
-  for (let i = 0; i < sqrSize; i++) {
-    console.log('X'.repeat(sqrSize));
+const firstArg = process.argv[2];
+const number = parseInt(firstArg, 10);
+if (Number.isInteger(number)) {
+  for (let i = 0; i < number; i++) {
+    console.log('X'.repeat(number));
   }
 } else {
   console.log('Missing size');

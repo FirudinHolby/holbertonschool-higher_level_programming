@@ -1,27 +1,22 @@
 #!/usr/bin/python3
+
 class VerboseList(list):
+    """A list subclass that prints notifications on modifications."""
 
-    def append(self, value):
-        super().append(value)
-        print(f"Added [{value}] to the list.")
+    def append(self, item):
+        super().append(item)
+        print(f"Added [{item}] to the list.")
 
-    def extend(self, value):
-        super().extend(item for item in value)
-        print(f"Extended the list with [{len(value)}] items.")
+    def extend(self, items):
+        items = list(items)
+        super().extend(items)
+        print(f"Extended the list with [{len(items)}] items.")
 
-    def remove(self, value):
-        print(f"Removed [{value}] from the list.")
-        super().remove(value)
+    def remove(self, item):
+        print(f"Removed [{item}] from the list.")
+        super().remove(item)
 
-    def pop(self, value=-1):
-        item = self[value]
+    def pop(self, index=-1):
+        item = self[index]
         print(f"Popped [{item}] from the list.")
-        return super().pop(value)
-
-
-vl = VerboseList([1, 2, 3])
-vl.append(4)
-vl.extend([5, 6])
-vl.remove(2)
-vl.pop()
-vl.pop(0)
+        return super().pop(index)

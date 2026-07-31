@@ -1,11 +1,19 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)"""
+"""
+This module defines a Square class with a private size attribute.
+"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)"""
+    """
+    A class that defines a square by its size.
+    """
+
     def __init__(self, size):
-        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
-        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+        """
+        Initializes a new Square instance.
+
+        Args:
+            size (int): The size of one side of the square.
         """
         self.__size = size

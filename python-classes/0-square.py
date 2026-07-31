@@ -1,7 +1,11 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)"""
+"""
+This module defines a Square class.
+"""
 
 
 class Square:
-    '''python3 -c 'print(__import__("my_module").MyClass.__doc__)'''
+    """
+    An empty class that defines a square.
+    """
     pass

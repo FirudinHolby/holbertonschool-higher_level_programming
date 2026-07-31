@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'"""
+
+"""
+Module for looking up available attributes of an object.
+"""
 
 
 def lookup(obj):
-    """
-    python3 -c 'print(__import__("my_module").my_function.__doc__)'
-    python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
-    """
+    """Returns the list of available attributes of an object."""
     return dir(obj)

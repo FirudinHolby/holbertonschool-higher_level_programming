@@ -1,8 +1,4 @@
-#!//usr/bin/node
-document.addEventListener("DOMContentLoaded", () => {
-    const head = document.querySelector("header");
-
-    document.querySelector("#red_header").addEventListener("click", () => {
-        head.style.color = "#FF0000";
-    });
+#!/usr/bin/node
+document.getElementById('red_header').addEventListener('click', function () {
+  document.querySelector('header').style.color = '#FF0000';
 });

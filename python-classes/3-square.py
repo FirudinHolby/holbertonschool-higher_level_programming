@@ -1,19 +1,30 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)"""
+"""
+This module defines a Square class.
+"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)"""
+    """
+    A class that represents a square.
+    """
+
     def __init__(self, size=0):
-        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
-        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
+        Initializes the Square instance (Obyekt yaradılanda işə düşür).
+        """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
+
         self.__size = size
-        if type(self.__size) is not int:
-            raise TypeError('size must be an integer')
-        elif self.__size < 0:
-            raise ValueError('size must be >= 0')
 
     def area(self):
-        self.area = self.__size ** 2
-        return self.area
+        """
+        Calculates the current square area.
+
+        Returns:
+            The current square area (size * size).
+        """
+        return self.__size * self.__size

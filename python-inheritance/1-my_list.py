@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'"""
+""" a class that inherits from list"""
 
 
 class MyList(list):
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)'"""
-
+    """ a class that inherits from list"""
     def print_sorted(self):
+        """ prints the list, but sorted"""
         print(sorted(self))

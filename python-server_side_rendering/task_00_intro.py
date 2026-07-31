@@ -1,28 +1,32 @@
-#!/usr/bin/python3
+import os
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
-        return "template not string"
-
-    if not isinstance(attendees, list):
-        return "Attendees not list"
-
-    if not all(isinstance(a, dict) for a in attendees):
-        return "attendee not dictionary"
-    
-    if template == "":
-        return "Template is empty, no output files generated."
-
-    if len(attendees) == 0:
-        return "No data provided, no output files generated."
-
-    placeholders = ["name", "event_title", "event_date", "event_location"]
-    default = "N/A"
-
-    for index, attendee in enumerate(attendees, start=1):
-        new_template = template
+        print(f"Error: Invalid input type for template. Expected str, got {type(template).__name__}.")
+        return
+    if not isinstance(attendees, list) or not all(isinstance(item, dict) for item in attendees):
+        print(f"Error: Invalid input type for attendees. Expected list of dictionaries, got {type(attendees).__name__}.")
+        return
+    if not template:
+        print("Template is empty, no output files generated.")
+        return
+    if not attendees:
+        print("No data provided, no output files generated.")
+        return
+    for i, attendee in enumerate(attendees, start=1):
+        processed_template = template
+        
+        placeholders = ["name", "event_title", "event_date", "event_location"]
+        
         for key in placeholders:
-            value = attendee.get(key) or default
-            new_template = new_template.replace(f"{{{key}}}", value)
-        number = f"output_{index}.txt"
-        with open(number, "w") as f:
-            f.write(new_template)
+            value = attendee.get(key)
+            if value is None:
+                value = "N/A"
+            
+            processed_template = processed_template.replace(f"{{{key}}}", str(value))
+        filename = f"output_{i}.txt"
+        
+        try:
+            with open(filename, 'w') as f:
+                f.write(processed_template)
+        except Exception as e:
+            print(f"Error writing to {filename}: {e}")

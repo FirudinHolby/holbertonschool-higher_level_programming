@@ -1,31 +1,62 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)"""
+"""
+This module defines a Square class.
+
+It includes a private attribute 'size' with a getter and setter
+to manage validation of the square's dimensions.
+"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)"""
+    """
+    A class that represents a square.
+
+    Attributes:
+        size (int): The length of a side of the square.
+    """
+
     def __init__(self, size=0):
-        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
-        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
-        self.__size = size
-        if type(self.__size) is not int:
-            raise TypeError('size must be an integer')
-        elif self.__size < 0:
-            raise ValueError('size must be >= 0')
+        Initializes the Square instance.
+
+        Args:
+            size (int): The length of a side of the new square.
+        """
+        self.size = size
 
     @property
     def size(self):
+        """
+        Retrieves the size of the square.
+
+        Returns:
+            int: The size of the square.
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """
+        Sets the size of the square with type and value validation.
+
+        Args:
+            value (int): The new size of the square.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
         self.__size = value
-        if type(value) is not int:
-            raise TypeError('size must be an integer')
-        elif value < 0:
-            raise ValueError('size must be >= 0')
 
     def area(self):
-        self.__area = self.__size ** 2
-        return self.__area
+        """
+        Calculates the current square area.
+
+        Returns:
+            int: The area of the square.
+        """
+        return self.__size * self.__size

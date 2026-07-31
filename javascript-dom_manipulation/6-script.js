@@ -1,9 +1,8 @@
 #!/usr/bin/node
-const character = document.querySelector("#character");
-
-fetch("https://swapi-api.hbtn.io/api/people/5/?format=json")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        character.textContent = data.name;
-    });
+fetch('https://swapi-api.hbtn.io/api/people/5/?format=json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    document.getElementById('character').textContent = data.name;
+  });

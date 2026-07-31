@@ -1,11 +1,9 @@
 #!/usr/bin/node
+const a = process.argv[2];
+const b = process.argv[3];
 function add (a, b) {
-  if (Number(process.argv[2]) && Number(process.argv[3])) {
-    const sum = Number(process.argv[2]) + Number(process.argv[3]);
-    console.log(sum);
-  } else {
-    console.log('NaN');
-  }
+  const numA = parseInt(a, 10);
+  const numB = parseInt(b, 10);
+  console.log(numA + numB);
 }
-
-add();
+add(a, b);

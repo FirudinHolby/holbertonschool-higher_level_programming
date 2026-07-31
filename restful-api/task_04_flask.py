@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Simple REST API using Flask"""
+
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -10,30 +12,38 @@ users = {}
 def home():
     return "Welcome to the Flask API!"
 
+
+@app.route("/status")
+def status():
+    return "OK"
+
+
 @app.route("/data")
 def data():
     return jsonify(list(users.keys()))
 
-@app.route("/status")
-def status():
-    return 'OK'
 
-@app.route('/users/<username>')
-def account(username):
-    if not username in users:
+@app.route("/users/<username>")
+def get_user(username):
+    user = users.get(username)
+    if user is None:
         return jsonify({"error": "User not found"}), 404
-    return jsonify(users[username])
+    return jsonify(user)
 
-@app.route('/add_user', methods=['POST'])
-def new_user():
-    data = request.get_json()
+
+@app.route("/add_user", methods=["POST"])
+def add_user():
+
+    data = request.get_json(silent=True)
     if data is None:
-        return jsonify({"error":"Invalid JSON"}), 400
-    username = data.get('username')
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    username = data.get("username")
     if not username:
-        return jsonify({"error":"Username is required"}), 400
+        return jsonify({"error": "Username is required"}), 400
+
     if username in users:
-        return jsonify({"error":"Username already exists"}), 409
+        return jsonify({"error": "Username already exists"}), 409
 
     users[username] = data
     return jsonify({"message": "User added", "user": data}), 201

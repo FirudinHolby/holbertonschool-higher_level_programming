@@ -1,22 +1,12 @@
 #!/usr/bin/node
-const nmbr = process.argv.length - 2;
-
-if (nmbr < 2) {
-  console.log(0);
-} else {
-  let max = -Infinity;
-  let secMax = -Infinity;
-
-  for (let i = 2; i < process.argv.length; i++) {
-    const n = Number(process.argv[i]);
-
-    if (n > max) {
-      secMax = max;
-      max = n;
-    } else if (n > secMax && n < max) {
-      secMax = n;
-    }
+function secondBiggest (array) {
+  if (array.length === 0 || array.length === 1) {
+    return 0;
+  } else {
+    const sortedArray = array.sort((a, b) => a - b);
+    return sortedArray[sortedArray.length - 2];
   }
-
-  console.log(secMax);
 }
+
+const argsArray = process.argv.slice(2).map(Number);
+console.log(secondBiggest(argsArray));

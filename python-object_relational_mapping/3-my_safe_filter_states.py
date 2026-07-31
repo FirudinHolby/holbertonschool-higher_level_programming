@@ -1,23 +1,33 @@
 #!/usr/bin/python3
-"""third ORM"""
-
+"""
+Displays all values in the states table where name matches the argument.
+"""
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(
-        host="localhost", user=sys.argv[1],
-        password=sys.argv[2], database=sys.argv[3], port=3306
-        )
+    mysql_user = sys.argv[1]
+    mysql_password = sys.argv[2]
+    db_name = sys.argv[3]
+    state_searched = sys.argv[4]
 
-    cs = db.cursor()
-    cs.execute(
-        "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC",
-        (sys.argv[4],)
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=mysql_user,
+        passwd=mysql_password,
+        db=db_name
     )
-    rows = cs.fetchall()
+
+    cursor = db.cursor()
+
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cursor.execute(query, (state_searched,))
+
+    rows = cursor.fetchall()
+
     for row in rows:
         print(row)
 
-    cs.close()
+    cursor.close()
     db.close()

@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""This is inheritance"""
+"""a class"""
 
 
 class BaseGeometry:
-    """This is class"""
-
+    """a class"""
     def area(self):
-        raise Exception('area() is not implemented')
+        raise Exception("area() is not implemented")
